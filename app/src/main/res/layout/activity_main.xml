@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layuot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/turnX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="turnX"
+                android:layout_weight="1"/>
+
+        <Button
+                android:id="@+id/turnY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="turnY"
+                android:layout_weight="1"/>
+
+        <Button
+                android:id="@+id/turnZ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="turnZ"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/moveX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="moveX"
+                android:layout_weight="1"/>
+
+
+        <Button
+                android:id="@+id/moveY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="moveY"
+                android:layout_weight="1"/>
+
+
+        <Button
+                android:id="@+id/moveZ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="moveZ"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <android.opengl.GLSurfaceView
+            android:id="@+id/glSurfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
+
+    <!--    <ScrollView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:moveZ="16dp"-->
+    <!--            android:layout_marginLeft="16dp"-->
+    <!--            android:layout_marginEnd="16dp"-->
+    <!--            android:layout_marginRight="16dp"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            tools:ignore="MissingConstraints"-->
+    <!--            tools:layout_editor_absoluteY="8dp">-->
+
+    <!--        <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:orientation="vertical" />-->
+    <!--    </ScrollView>-->
+
+
+</LinearLayout>
