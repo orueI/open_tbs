@@ -41,8 +41,8 @@ public class RubikCube extends ThreeDimensionalMutableFigure {
 
     Vector3d getCenter(){
         return new Vector3d(
-        new Line(get(0,0,0).getCenter(),get(listCubes.size(),listCubes.get(0).size(),listCubes.get(0).get(0).size()).getCenter())
-                .intersection(new Line(get(0,listCubes.get(0).size(),0).getCenter(), get(listCubes.size(),0,listCubes.get(0).get(0).size()).getCenter())));
+        new Line(get(0,0,0).getCenter(),get(listCubes.size()-1,listCubes.get(0).size()-1,listCubes.get(0).get(0).size()-1).getCenter())
+                .intersection(new Line(get(0,listCubes.get(0).size()-1,0).getCenter(), get(listCubes.size()-1,0,listCubes.get(0).get(0).size()-1).getCenter())));
     }
 
     Cube get(int x,int y,int z){
@@ -55,10 +55,10 @@ public class RubikCube extends ThreeDimensionalMutableFigure {
 
     List<List<Cube>> getBrinkZy(int x) {
         List<List<Cube>> listResult = new LinkedList();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < listCubes.size(); i++) {
             List<Cube> listTmp = new LinkedList();
-            for (int j = 0; j < size; j++) {
-                listTmp.add(listCubes.get(i).get(i).get(x));
+            for (int j = 0; j < listCubes.get(i).size(); j++) {
+                listTmp.add(listCubes.get(i).get(j).get(x));
             }
             listResult.add(listTmp);
         }

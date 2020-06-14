@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FactoryCube {
 
-    Color white = new Color(1, 1, 1, 1);
+    Color white = new Color(0.9f, 0.9f, 0.9f, 0.9f);
     Color red = new Color(1, 0, 0, 1);
     Color blue = new Color(0, 0, 1, 1);
     Color green = new Color(0, 1, 0, 1);
@@ -61,11 +61,13 @@ public class FactoryCube {
 //        listCubes.add(list2dTmp);
 
 //        RubikCube rubikCube = new RubikCube(listCubes, size);
-//        drawBrink(rubikCube.getBrinkYx(0), (Cube cube) -> cube.getBottomBrink().setColor(red));
+        drawBrink(rubikCube.getBrinkYx(0), (Cube cube) -> cube.getBehindBrink().setColor(red));
+        drawBrink(rubikCube.getBrinkYx(listCubes.size()-1), (Cube cube) -> cube.getFrontBrink().setColor(orange));
+        drawBrink(rubikCube.getBrinkZx(listCubes.get(0).size() - 1), (Cube cube) -> cube.getTopBrink().setColor(blue));
+        drawBrink(rubikCube.getBrinkZx(0), (Cube cube) -> cube.getBottomBrink().setColor(green));
+        drawBrink(rubikCube.getBrinkZy(0), (Cube cube) -> cube.getLeftBrink().setColor(white));
+        drawBrink(rubikCube.getBrinkZy(listCubes.get(0).get(0).size() - 1), (Cube cube) -> cube.getRightBrink().setColor(yellow));
 //        drawBrink(rubikCube.getBrinkYx(size - 1), (Cube cube) -> cube.getTopBrink().setColor(yellow));
-        drawBrink(rubikCube.getBrinkYx(0), (Cube cube) -> cube.getFrontBrink().setColor(orange));
-//        drawBrink(rubikCube.getBrinkZx(size - 1), (Cube cube) -> cube.getBehindBrink().setColor(blue));
-//        drawBrink(rubikCube.getBrinkZx(0), (Cube cube) -> cube.getLeftBrink().setColor(green));
 //        drawBrink(rubikCube.getBrinkZy(size - 1), (Cube cube) -> cube.getRightBrink().setColor(white));
         return rubikCube;
     }

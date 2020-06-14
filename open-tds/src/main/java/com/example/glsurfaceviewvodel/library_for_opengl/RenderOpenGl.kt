@@ -143,12 +143,12 @@ class RenderOpenGl : GLSurfaceView.Renderer,
     }
 
     private fun createProjectionMatrix(width: Int, height: Int) {
-        var ratio = 1f
+        var ratio = 1f// todo create new class for this
         var left = -1f
         var right = 1f
         var bottom = -1f
         var top = 1f
-        val near = 2f
+        val near = 1f
         val far = 12f
         if (width > height) {
             ratio = width.toFloat() / height

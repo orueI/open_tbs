@@ -29,20 +29,23 @@ public class CubeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cube, container, false);
         GLSurfaceView glSurfaceView = view.findViewById(R.id.glSurfaceView);
         glSurfaceView.setEGLContextClientVersion(2);
-        viewModel = ViewModelProviders.of(this).get(RubikCubeViewModel.class);
+        initVm();
         RenderOpenGl render = new RenderOpenGl(getContext(), viewModel, viewModel);
         glSurfaceView.setRenderer(render);
 
         return view;
     }
+void initVm(){
+    RubikCube rubikCube = FactoryCube.getInstance().createCube2x2(2);
+    viewModel = ViewModelProviders.of(this,new FactoryRubikCubeVm(rubikCube)).get(RubikCubeViewModel.class);
 
+}
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        RubikCube rubikCube = FactoryCube.getInstance().createCube2x2(2);
-        viewModel.addMutable3dObject(rubikCube);
+//        viewModel.addMutable3dObject(rubikCube);
 //        Camera camera = new Camera(new Vector3d(-2.0, -2.0, -3.0), new Vector3d(0.0, 0.0, 0.0), new Vector3d(0.0, 0.0, 0.0));
-        Vector3d vector3d = new Vector3d(-2.0, -2.0, -3.0);
+//        Vector3d vector3d = new Vector3d(-2.0, -2.0, -3.0);
 //        camera.setEveVector3d(new Vector3d());
 //        viewModel.setCamera(camera);
 

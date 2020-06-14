@@ -14,8 +14,11 @@ public class RubikCubeViewModel extends AnimationViewModel {
         this.rubikCube = rubikCube;
         addMutable3dObject(rubikCube);
         rubikCube.getCenter();
-        Camera camera = new Camera(rubikCube.getCenter().plus(new Vector3d(0.0,2.0,0.0)),rubikCube.getCenter(), new Vector3d(0.0,0.0,0.0));
-        setCamera(camera);
+        Camera camera1 = new Camera();
+        camera1.setCenterVector3d(rubikCube.getCenter());
+        camera1.setEveVector3d(rubikCube.getCenter().plus(new Vector3d(-2.0,3.0,-2.0)));
+//        Camera camera = new Camera(rubikCube.getCenter().plus(new Vector3d(0.0,2.0,0.0)),rubikCube.getCenter(), new Vector3d(0.0,0.0,0.0));
+        setCamera(camera1);
     }
 
     RubikCube rubikCube;

@@ -79,7 +79,7 @@ open class Parallelepiped : ThreeDimensionalMutableFigure{
     }
 }
 
-class Cube :
+open class Cube :
     Parallelepiped {
 
     constructor(
