@@ -48,5 +48,12 @@ class Vector3d: Vector3D {
     operator fun minus(p: Vector3d): Vector3d = Vector3d(add(Vector3d(-1 * p.x, -1 * p.y, -1 * p.z)))
     operator fun times(p: Vector3d): Vector3d = Vector3d(x * p.x, y * p.y,z * p.z)
     operator fun div(p: Vector3d): Vector3d = Vector3d(x / p.x, y / p.y,z / p.z)
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+        if (!super.equals(other)) return false
+        return true
+    }
+
 
 }

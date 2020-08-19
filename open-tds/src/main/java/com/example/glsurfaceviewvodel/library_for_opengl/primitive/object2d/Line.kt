@@ -14,12 +14,17 @@ class Line: Lines {
     var pointStart: Vector3d
     var pointFinish: Vector3d
 
+    constructor(pointStart: Vector3d, pointFinish: Vector3d, color: Color,width:Double) : super() {
+        this.pointStart = pointStart
+        this.pointFinish = pointFinish
+        this.color = color
+        this.width = width
+    }
     constructor(pointStart: Vector3d, pointFinish: Vector3d, color: Color) : super() {
         this.pointStart = pointStart
         this.pointFinish = pointFinish
         this.color = color
     }
-
 
     override fun prepareData(firstLine: Int): FloatArray {
         this.firstLine = firstLine

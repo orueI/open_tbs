@@ -12,15 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.glsurfaceviewvodel.library_for_opengl.dataclass.Camera;
-import com.example.glsurfaceviewvodel.library_for_opengl.dataclass.Vector3d;
-import com.example.glsurfaceviewvodel.library_for_opengl.viewmodel.animatin_vm.AnimationViewModel;
 import com.example.rubikscube.R;
 import com.example.xube.test_opengl.RenderOpenGl;
 
 
 public class CubeFragment extends Fragment {
 
-    private AnimationViewModel viewModel;
+    private RubikCubeViewModel viewModel;
 
     @Nullable
     @Override
@@ -32,14 +30,16 @@ public class CubeFragment extends Fragment {
         initVm();
         RenderOpenGl render = new RenderOpenGl(getContext(), viewModel, viewModel);
         glSurfaceView.setRenderer(render);
-
+        initListener(view);
         return view;
     }
-void initVm(){
-    RubikCube rubikCube = FactoryCube.getInstance().createCube2x2(2);
-    viewModel = ViewModelProviders.of(this,new FactoryRubikCubeVm(rubikCube)).get(RubikCubeViewModel.class);
 
-}
+    void initVm() {
+        RubikCube rubikCube = FactoryCube.getInstance().createCubeNxN(2);
+        viewModel = ViewModelProviders.of(this, new FactoryRubikCubeVm(rubikCube)).get(RubikCubeViewModel.class);
+
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -51,7 +51,7 @@ void initVm(){
 
     }
 
-    void initListener(View view){
+    void initListener(View view) {
 //        view.findViewById(R.id.btnXUp).setOnClickListener((v)->{
 //
 //        });
@@ -71,17 +71,18 @@ void initVm(){
 //
 //        });
 //        viewModel.get
-        view.findViewById(R.id.btnUp).setOnClickListener((v)->{
-
+        view.findViewById(R.id.btnUp).setOnClickListener((v) -> {
+            Camera camera = viewModel.getCamera();
+            viewModel.moveUpSelectCube();
         });
-        view.findViewById(R.id.btnDown).setOnClickListener((v)->{
-
+        view.findViewById(R.id.btnDown).setOnClickListener((v) -> {
+            viewModel.moveDownSelectCube();
         });
-        view.findViewById(R.id.btnLeft).setOnClickListener((v)->{
-
+        view.findViewById(R.id.btnLeft).setOnClickListener((v) -> {
+            viewModel.moveLeftSelectCube();
         });
-        view.findViewById(R.id.btnRight).setOnClickListener((v)->{
-
+        view.findViewById(R.id.btnRight).setOnClickListener((v) -> {
+            viewModel.moveRightSelectCube();
         });
     }
 

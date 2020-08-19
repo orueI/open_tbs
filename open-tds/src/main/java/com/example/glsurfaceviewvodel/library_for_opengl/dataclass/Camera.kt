@@ -7,7 +7,7 @@ import com.example.glsurfaceviewvodel.library_for_opengl.utils.turnVectorOnAngle
 data class Camera(
 
 // точка положения камеры
-    var eveVector3d: Vector3d = Vector3d(2.0,2.0,3.0),
+    var eveVector3d: Vector3d = Vector3d(0.0,2.0,0.0),
 //    var eyeX: Float = 2f,
 //    var eyeY: Float = 2f,
 //    var eyeZ: Float = 03f,

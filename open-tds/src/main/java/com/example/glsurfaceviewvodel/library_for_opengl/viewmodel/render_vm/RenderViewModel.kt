@@ -16,7 +16,11 @@ open class RenderViewModel : ViewModel,
     ObservablePrimitive,
     ObservableCamera {
     private val listPrimitive = ArrayList<RenderPrimitive>()
-    private var camera: Camera = Camera()
+    var camera: Camera = Camera()
+    set(value){
+        field = value
+        notifyForUpdateCamera()
+    }
     private val listObserversPrimitive = ArrayList<ObserverPrimitive>()
     private val listObserversCamera = ArrayList<ObserverCamera>()
     var isShowAxes = true
@@ -29,11 +33,6 @@ open class RenderViewModel : ViewModel,
     constructor() {
         if (isShowAxes)
             addPrimitive(createAxes())
-    }
-
-    fun setCamera(camera: Camera) {
-        this.camera = camera
-        notifyForUpdateCamera()
     }
 
     fun addPrimitive(p: RenderPrimitive) {

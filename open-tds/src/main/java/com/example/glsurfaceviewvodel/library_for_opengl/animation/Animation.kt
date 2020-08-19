@@ -10,13 +10,13 @@ abstract class Animation<T : MutableInterface> : Thread {
    private val quantityFramesUpdate: Int
 
    private val sleepTime: Long
-  private  val callBack: AnimationInterface<T>
+  private  val callBack: AnimationInterface<T>?
   protected  open var changeFigure: (figure: T) -> T = {it}
   protected  constructor(
         figure: T,
         allTimeAnimation: Long,
         quantityFramesUpdate: Int,
-        callBack: AnimationInterface<T>) : super() {
+        callBack: AnimationInterface<T>?) : super() {
         this.figure = figure
         this.callBack = callBack
         this.allTimeAnimation = allTimeAnimation
@@ -40,13 +40,13 @@ abstract class Animation<T : MutableInterface> : Thread {
     }
 
     override fun run() {
-        callBack.onStart(figure)
+        callBack?.onStart(figure)
         for (i in 0 until quantityFramesUpdate) {
             figure = changeFigure(figure)
-            callBack.onNext(figure)
+            callBack?.onNext(figure)
             Thread.sleep(sleepTime)
         }
-        callBack.onDestroy(figure)
+        callBack?.onDestroy(figure)
         Thread.currentThread().interrupt()
     }
 }
